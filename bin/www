@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('example-mongoose-express:server');
+var debug = require('debug')('cosa-hbs:server');
 var http = require('http');
 
 /**
