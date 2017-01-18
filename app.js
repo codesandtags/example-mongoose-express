@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var DB_URI = 'mongodb://traveluser:travels123@ds117869.mlab.com:17869/travels';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
