@@ -51,33 +51,38 @@
     <h1>{{title}}</h1>
     <hr>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <form class="form-horizontal" method="post" action="/countries/update">
+                <input type="hidden" name="countryId" value="{{country._id}}">
                 <div class="form-group">
-                    <label for="country" class="col-sm-2 control-label">Country</label>
-                    <div class="col-sm-10">
+                    <label for="country" class="col-sm-4 control-label">Country</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="country" name="country" placeholder="Colombia"
                                value="{{country.country}}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="capital" class="col-sm-2 control-label">Capital</label>
-                    <div class="col-sm-10">
+                    <label for="capital" class="col-sm-4 control-label">Capital</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="capital" name="capital" placeholder="Bogota"
                                value="{{country.capital}}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="urlCountryFlag" class="col-sm-2 control-label">URL Country Flag</label>
-                    <div class="col-sm-10">
+                    <label for="urlCountryFlag" class="col-sm-4 control-label">URL Country Flag</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="urlCountryFlag" name="urlCountryFlag"
                                placeholder="url country flag" value="{{country.image.full}}">
-                        <img src="{{country.image.full}}" alt="Flag">
+                        {{#if country.image.full}}
+                            <img src="{{country.image.full}}" alt="Flag">
+                        {{else}}
+                            <img src="http://vignette3.wikia.nocookie.net/conworld/images/c/c8/NoFlag.png" alt="No flag" width="150px">
+                        {{/if}}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="region" class="col-sm-2 control-label">Region</label>
-                    <div class="col-sm-10">
+                    <label for="region" class="col-sm-4 control-label">Region</label>
+                    <div class="col-sm-6">
 
                         <select class="form-control" id="region" name="region">
                             {{#select country.region}}

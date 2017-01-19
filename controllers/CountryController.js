@@ -35,8 +35,8 @@ exports.edit = function(req, res) {
                 res.redirect(301, '/?status=1');
             }
 
-            console.log('Country => ', result);
             res.render('edit-country', {
+                title: 'Edit Country',
                 country: result,
                 helpers: {
                     select: function(value, options) {
@@ -46,5 +46,42 @@ exports.edit = function(req, res) {
                     }
                 }
             });
+        });
+};
+
+exports.update = function(req, res) {
+    var countryId = req.body.countryId;
+    Country.findById(countryId)
+        .exec(function(error, result) {
+            if (error) {
+                throw new Error('Country does not exist');
+                res.redirect(301, '/?status=1');
+            }
+
+            console.log('Updating => ', result);
+
+            result.country = req.body.country;
+            result.capital = req.body.capital;
+            result.region =  req.body.region;
+            result.image = {full: req.body.urlCountryFlag};
+
+            result.save();
+            res.redirect(301, '/countries/list?status=1');
+        });
+};
+
+exports.remove = function(req, res) {
+    var countryId = req.params.countryId;
+    Country.findById(countryId)
+        .exec(function(error, result) {
+            if (error) {
+                throw new Error('Country does not exist');
+                res.redirect(301, '/?status=1');
+            }
+
+            console.log('Country to remove =>', result);
+            result.remove();
+
+            res.redirect(301, '/countries/list?status=1');
         });
 };

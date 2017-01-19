@@ -38,8 +38,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/countries/create-country">Create Country</a></li>
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/countries/create-country">Create Country</a></li>
                 <li><a href="/countries/list">List Countries</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -51,29 +51,29 @@
     <h1>{{title}}</h1>
     <hr>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <form class="form-horizontal" method="post" action="/countries/create">
                 <div class="form-group">
-                    <label for="country" class="col-sm-2 control-label">Country</label>
-                    <div class="col-sm-10">
+                    <label for="country" class="col-sm-4 control-label">Country</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="country" name="country" placeholder="Colombia">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="capital" class="col-sm-2 control-label">Capital</label>
-                    <div class="col-sm-10">
+                    <label for="capital" class="col-sm-4 control-label">Capital</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="capital" name="capital" placeholder="Bogota">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="urlCountryFlag" class="col-sm-2 control-label">URL Country Flag</label>
-                    <div class="col-sm-10">
+                    <label for="urlCountryFlag" class="col-sm-4 control-label">URL Country Flag</label>
+                    <div class="col-sm-6">
                         <input type="text" class="form-control" id="urlCountryFlag" name="urlCountryFlag" placeholder="url country flag">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="region" class="col-sm-2 control-label">Region</label>
-                    <div class="col-sm-10">
+                    <label for="region" class="col-sm-4 control-label">Region</label>
+                    <div class="col-sm-6">
                         <select class="form-control" id="region" name="region">
                             <option value="Sur America">Sur America</option>
                             <option value="Norte America">Norte America</option>

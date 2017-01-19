@@ -12,6 +12,11 @@ router.post('/create', function(req, res, next) {
     CountryController.create(req, res);
 });
 
+/* P0ST home page. */
+router.post('/update', function(req, res, next) {
+    CountryController.update(req, res);
+});
+
 /* GET home page. */
 router.get('/list', function(req, res, next) {
     CountryController.list(req, res);
@@ -20,6 +25,11 @@ router.get('/list', function(req, res, next) {
 /* GET home page. */
 router.get('/edit/:countryId', function(req, res, next) {
     CountryController.edit(req, res);
+});
+
+/* GET home page. */
+router.get('/remove/:countryId', function(req, res, next) {
+    CountryController.remove(req, res);
 });
 
 
