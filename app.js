@@ -4,9 +4,22 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var hbs = require('hbs');
+
+var jsdom = require("jsdom");
+var window = jsdom.jsdom().defaultView;
+
+jsdom.jQueryify(window, "http://code.jquery.com/jquery.js", function () {
+    var $ = window.$;
+    hbs.registerHelper('select', function(value, options) {
+        var $el = $('<select />').html( options.fn(this) );
+        $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+        return $el.html();
+    });
+});
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var countries = require('./routes/countries');
 
 var app = express();
 
@@ -27,6 +40,8 @@ console.log('hola k hace.. updated');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+//app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,7 +52,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/countries', countries);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

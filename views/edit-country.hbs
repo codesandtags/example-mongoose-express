@@ -52,40 +52,48 @@
     <hr>
     <div class="row">
         <div class="col-md-6">
-            <form class="form-horizontal" method="post" action="/countries/create">
+            <form class="form-horizontal" method="post" action="/countries/update">
                 <div class="form-group">
                     <label for="country" class="col-sm-2 control-label">Country</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="country" name="country" placeholder="Colombia">
+                        <input type="text" class="form-control" id="country" name="country" placeholder="Colombia"
+                               value="{{country.country}}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="capital" class="col-sm-2 control-label">Capital</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="capital" name="capital" placeholder="Bogota">
+                        <input type="text" class="form-control" id="capital" name="capital" placeholder="Bogota"
+                               value="{{country.capital}}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="urlCountryFlag" class="col-sm-2 control-label">URL Country Flag</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="urlCountryFlag" name="urlCountryFlag" placeholder="url country flag">
+                        <input type="text" class="form-control" id="urlCountryFlag" name="urlCountryFlag"
+                               placeholder="url country flag" value="{{country.image.full}}">
+                        <img src="{{country.image.full}}" alt="Flag">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="region" class="col-sm-2 control-label">Region</label>
                     <div class="col-sm-10">
+
                         <select class="form-control" id="region" name="region">
-                            <option value="Sur America">Sur America</option>
-                            <option value="Norte America">Norte America</option>
-                            <option value="Europa">Europa</option>
-                            <option value="Asia">Asia</option>
-                            <option value="Oceania">Oceania</option>
+                            {{#select country.region}}
+                                <option value="Sur America">Sur America</option>
+                                <option value="Norte America">Norte America</option>
+                                <option value="Europa">Europa</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Oceania">Oceania</option>
+                            {{/select}}
                         </select>
+
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-info">Create Country</button>
+                        <button type="submit" class="btn btn-info">Update Country</button>
                     </div>
                 </div>
             </form>

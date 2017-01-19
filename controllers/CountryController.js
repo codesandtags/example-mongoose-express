@@ -25,3 +25,26 @@ exports.create = function(req, res) {
     // redirect to home page...
     res.redirect(301, '/?status=1');
 };
+
+exports.edit = function(req, res) {
+    var countryId = req.params.countryId;
+    Country.findById(countryId)
+        .exec(function(error, result) {
+            if (error) {
+                throw new Error('Country does not exist');
+                res.redirect(301, '/?status=1');
+            }
+
+            console.log('Country => ', result);
+            res.render('edit-country', {
+                country: result,
+                helpers: {
+                    select: function(value, options) {
+                        var $el = $('<select />').html(options.fn(this));
+                        $el.find('[value="' + value + '"]').attr({'selected': 'selected'});
+                        return $el.html();
+                    }
+                }
+            });
+        });
+};
