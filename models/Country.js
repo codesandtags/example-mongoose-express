@@ -3,7 +3,12 @@ var Schema = mongoose.Schema;
 var CountrySchema = new Schema({
     country: String,
     capital: String,
-    region: String
+    region: String,
+    createdOn: {type: Date, default: Date.now}
 });
-var Country = mongoose.model('Country', CountrySchema);
-export default Country;
+
+module.exports =  mongoose.model('Country', CountrySchema);
+
+/**
+ * Using this way, the _id attribute will not be generated: new Schema({ atributes...}, {_id: false});
+ */

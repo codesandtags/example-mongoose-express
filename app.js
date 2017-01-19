@@ -9,9 +9,13 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// Mongoose ODM
 var DB_URI = 'mongodb://cocoman:clave.123@ds117869.mlab.com:17869/travels';
 var mongoose = require('mongoose');
+// Connect to MongoDB
 mongoose.connect(DB_URI);
+// Retrieve connection
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
