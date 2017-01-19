@@ -4,11 +4,26 @@ var CountryController = require('../controllers/CountryController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mongoose and Express.js' });
+    var message;
+
+    if (req.query.status == 1) {
+        message = 'Country created!';
+    }
+
+    res.render('index', {
+        title: 'CRUD using Express.js and Mongoose.',
+        description: 'This is great example for future applications.',
+        message: message
+    });
 });
 
 /* GET home page. */
-router.get('/newcountry', function(req, res, next) {
+router.get('/create-country', function(req, res, next) {
+    res.render('create-country', { title: 'Create new Country' });
+});
+
+/* P0ST home page. */
+router.post('/newcountry', function(req, res, next) {
     CountryController.create(req, res);
 });
 

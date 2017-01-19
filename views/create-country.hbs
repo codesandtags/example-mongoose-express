@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +24,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -42,8 +40,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/create-country">Create Country</a></li>
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/create-country">Create Country</a></li>
                 <li><a href="/list-countries">List Countries</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -52,20 +50,43 @@
 
 <div class="container">
 
-    <div class="starter-template">
-        <h1>{{title}}</h1>
-        <p>{{description}}</p>
-
-        {{#if message}}
-            <p style="padding:40px; border:1px solid #0baa08; background: #cdf9e0">{{message}}</p>
-        {{/if}}
-
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal" method="post" action="newcountry">
+                <div class="form-group">
+                    <label for="country" class="col-sm-2 control-label">Country</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="country" name="country" placeholder="Colombia">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="capital" class="col-sm-2 control-label">Capital</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="capital" name="capital" placeholder="Bogota">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="region" class="col-sm-2 control-label">Region</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="region" name="region">
+                            <option value="Sur America">Sur America</option>
+                            <option value="Norte America">Norte America</option>
+                            <option value="Europa">Europa</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Oceania">Oceania</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info">Create Country</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
+</div>
 </body>
 </html>
