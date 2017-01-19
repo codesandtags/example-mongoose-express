@@ -27,4 +27,9 @@ router.post('/newcountry', function(req, res, next) {
     CountryController.create(req, res);
 });
 
+/* GET home page. */
+router.get('/list-countries', function(req, res, next) {
+    CountryController.list(req, res);
+});
+
 module.exports = router;

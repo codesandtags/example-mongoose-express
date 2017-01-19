@@ -4,6 +4,7 @@ var CountrySchema = new Schema({
     country: String,
     capital: String,
     region: String,
+    image: Object,
     createdOn: {type: Date, default: Date.now}
 });
 
